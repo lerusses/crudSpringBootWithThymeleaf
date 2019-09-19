@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Mettre l'utilisateur à jour</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <form action="#" th:action="@{/update/{id}(id=${user.id})}" th:object="${user}" method="post">
+            <label for="name"> name</label>
+            <input type="text" th:field="*{name}" id="name" placeholder="Name">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            <label for="email">Email</label>
+            <input type="text" th:field="*{email}" id="name" placeholder="Name">
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            <input type="submit" value="update User">
+        </form>
+    </body>
+</html>
